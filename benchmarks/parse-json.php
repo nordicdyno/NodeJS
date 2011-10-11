@@ -6,7 +6,7 @@ $_read = timer();
 // Read json file
 $fn = './example.json';
 $fp	= fopen($fn, 'r');
-$json = fread($fp, filesize($fn));
+$json_str = fread($fp, filesize($fn));
 fclose($fp);
 
 
@@ -14,10 +14,11 @@ echo "json.read: ". (timer() - $_read) ."ms\n";
 $_parse	= timer();
 
 // JSON parse
-$json = json_decode($json, true);
+for ($i = 0; $i < 100; $i++)
+	$json = json_decode($json_str, true);
 $json = $json['data']['messages'];
 
-echo "json.parse: ". (timer() - $_parse) ."ms\n";
+echo "json.parse100: ". (timer() - $_parse) ."ms\n";
 $_trasnform = timer();
 
 // JSON transform

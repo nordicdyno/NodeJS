@@ -6,11 +6,14 @@ console.time('json.read');
 
 fs.readFile('example.json', function (err, json){
 	console.timeEnd('json.read');
-	console.time('json.parse');
 
-	var messages = JSON.parse(json).data.messages;
+	console.time('json.parse100');
 
-	console.timeEnd('json.parse');
+	var messages;
+	for (var i = 0; i < 100; i++)
+		messages = JSON.parse(json).data.messages;
+
+	console.timeEnd('json.parse100');
 	console.time('json.transform');
 
 	var clone = messages.map(function (msg){

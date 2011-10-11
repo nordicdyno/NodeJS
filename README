@@ -19,3 +19,25 @@ json.parse: 40ms
 json.transform: 11ms
 all: 68ms
 
+
+Benchmark (x100)
+~~~~~~~~~~~~~~~~
+
+$ perl parse-json.pl
+json.read: 3ms
+json.parse100: 906ms
+json.transform: 6ms
+all: 915ms
+
+$ php parse-json.php
+json.read: 1ms
+json.parse100: 2539ms
+json.transform: 6ms
+all: 2546ms
+
+$ node parse-json.js
+json.read: 4ms
+json.parse100: 2504ms
+json.transform: 6ms
+all: 2515ms
+
