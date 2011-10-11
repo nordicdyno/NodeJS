@@ -1,0 +1,21 @@
+Benchmark
+~~~~~~~~~
+
+$ perl parse-json.pl
+json.read: 3ms
+json.parse: 9ms
+json.transform: 6ms
+all: 18ms
+
+$ php parse-json.php
+json.read: 2ms
+json.parse: 28ms
+json.transform: 11ms
+all: 44ms
+
+$ node parse-json.js
+json.read: 4ms
+json.parse: 40ms
+json.transform: 11ms
+all: 68ms
+
